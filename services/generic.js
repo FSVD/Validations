@@ -6,16 +6,16 @@ function genericService() {
     }
 
     this.connect = function (ip4addr, tcpPort, timeout, res) {
-        return console.log("connected!")
+        return "connected!"
     }
 
     this.sumAndRest = function (val_1, val_2, val_3, res) {
         return new Promise((resolve, reject) => {
-            resolve(this.sumValues(val_1, val_2, res));
+            resolve(this.sumValues(val_1, val_2, res)); // Calls existing sumValues service function
         }).then(result => {
             return result-(val_3);
         }).catch(err => {
-            res.status(500).json({error: true, number: err.errno, origin: {module: 'genericService', function: 'sumValues'}, data: {message: err.message}});
+            res.status(500).json({error: true, number: err.errno, origin: {module: 'genericService', function: 'sumAndRest'}, data: {message: err.message}});
         })
     }
 }
