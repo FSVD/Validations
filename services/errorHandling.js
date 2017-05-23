@@ -1,4 +1,4 @@
-function genericService() {
+function errorHandlingService() {
 
     this.sumValues = function (val_1, val_2, res) {
         var sum = val_1 + val_2;
@@ -15,9 +15,9 @@ function genericService() {
         }).then(result => {
             return result-(val_3);
         }).catch(err => {
-            res.status(500).json({error: true, number: err.errno, origin: {module: 'genericService', function: 'sumAndRest'}, data: {message: err.message}});
+            res.status(500).json({error: true, number: err.errno, origin: {module: 'errorHandlingService', function: 'sumAndRest'}, data: {message: err.message}});
         })
     }
 }
 
-module.exports = new genericService();
+module.exports = new errorHandlingService();

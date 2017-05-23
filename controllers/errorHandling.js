@@ -1,8 +1,8 @@
-var genericService = require('../services/generic');
+var errorHandlingService = require('../services/errorHandling');
 var assert = require('assert');
 var net = require('net');
 
-function genericController() {
+function errorHandlingController() {
     
     this.sumValues = function (val_1, val_2, res) {
 
@@ -10,11 +10,11 @@ function genericController() {
         assert.equal(typeof(val_2), 'number', "value 2 must be a number");
 
         return new Promise((resolve, reject) => {
-            resolve(genericService.sumValues(val_1, val_2, res));
+            resolve(errorHandlingService.sumValues(val_1, val_2, res));
         }).then(result => {
             res.json(result);
         }).catch(err => {
-            res.status(500).json({error: true, number: err.errno, origin: {module: 'genericController', function: 'sumValues'}, data: {message: err.message}});
+            res.status(500).json({error: true, number: err.errno, origin: {module: 'errorHandlingController', function: 'sumValues'}, data: {message: err.message}});
         })
     }
 
@@ -30,11 +30,11 @@ function genericController() {
         assert.ok(!isNaN(timeout) && timeout > 0, "argument 'timeout' must be a positive integer");
 
         return new Promise((resolve, reject) => {
-            resolve(genericService.connect(ip4addr, tcpPort, timeout, res));
+            resolve(errorHandlingService.connect(ip4addr, tcpPort, timeout, res));
         }).then(result => {
             res.json(result);
         }).catch(err => {
-            res.status(500).json({error: true, number: err.errno, origin: {module: 'genericController', function: 'connect'}, data: {message: err.message}});
+            res.status(500).json({error: true, number: err.errno, origin: {module: 'errorHandlingController', function: 'connect'}, data: {message: err.message}});
         })
     }
 
@@ -46,16 +46,16 @@ function genericController() {
         assert.ok(val_3 > 0, "value 3 must be a positive number");
 
         return new Promise((resolve, reject) => {
-            resolve(genericService.sumAndRest(val_1, val_2, val_3, res));
+            resolve(errorHandlingService.sumAndRest(val_1, val_2, val_3, res));
         }).then(result => {
             res.json(result);
         }).catch(err => {
-            res.status(500).json({error: true, number: err.errno, origin: {module: 'genericController', function: 'sumAndRest'}, data: {message: err.message}});
+            res.status(500).json({error: true, number: err.errno, origin: {module: 'errorHandlingController', function: 'sumAndRest'}, data: {message: err.message}});
         })
     }
 }
 
-module.exports = new genericController();
+module.exports = new errorHandlingController();
 
 
 //var customErrorHandler = require('../error-handler-02');

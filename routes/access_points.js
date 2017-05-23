@@ -3,10 +3,10 @@ var app = express();
 
 // Including routers:
 var index = require('./index');
-var generic = require('./generic');
+var errorHandling = require('./errorHandling');
 
 // Configuring routers passing the app as parameter:
 index.configure(app);
-generic.configure(app);
+errorHandling.configure(app);
 
 module.exports = app;
