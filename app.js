@@ -19,12 +19,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// set API access point file
-var accessPoints = require('./routes/access_points');
-app.use(accessPoints);
-
-// Import custom error handlers
-//var errorHandler = require('./error/error-handler-01');
+// Import application's modules
+const appModules = require('./app.modules');
+app.use(appModules);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

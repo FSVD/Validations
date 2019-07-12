@@ -1,1 +1,0 @@
-Algo necesario en todo lenguaje de programación es el manejo de errores. Lamentablemente en JS es poco usado y en llamadas asíncronas está mal usado la mayoría de las veces. Es por eso que armo este post para que nos enteremos de que el objeto Error existe en JS y nos sirve mucho mas de lo que sabemos y/o creemos.

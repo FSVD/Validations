@@ -1,4 +1,4 @@
-var errorHandlingService = require('../services/errorHandling');
+var errorHandlingService = require('./errors.service');
 var assert = require('assert');
 var net = require('net');
 
@@ -23,7 +23,7 @@ function errorHandlingController() {
         assert.equal(typeof(ip4addr), 'string', "argument 'ip4addr' must be a string");
         assert.ok(net.isIPv4(ip4addr), "argument 'ip4addr' must be a valid IPv4 address");
 
-        assert.equal(typeof(tcpPort), 'number', "argument 'tcpPort' must be a string");
+        assert.equal(typeof(tcpPort), 'number', "argument 'tcpPort' must be a number");
         assert.ok(!isNaN(tcpPort) && tcpPort > 0 && tcpPort < 65536, "argument 'tcpPort' must be a positive integer between 1 and 65535");
 
         assert.equal(typeof (timeout), 'number', "argument 'timeout' must be a number");
