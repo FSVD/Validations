@@ -1,14 +1,16 @@
-# Error Handling
+# Validations
 
-Error handling practice.<br>
+Using assertions in Node JS.<br>
 
 ## Installing:
-1) Install project dependencies > "npm install".
-3) Run project > "npm start".
-6) In order to check API open yuor web browser and go to "http://localhost:3000" 
-4) Download and open Postman "https://www.getpostman.com/downloads/"
+
+1. Install project dependencies > "npm install".
+2. Run project > "npm start".
+3. In order to check API open yuor web browser and go to "http://localhost:3000"
+4. Download and open Postman "https://www.getpostman.com/downloads/"
 
 ## Postman requests
+
 ```
 Method: POST
 URL: http://localhost:3000/assert_V1/
